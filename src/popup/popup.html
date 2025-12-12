@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>PDF Creator</h1>
+    </header>
+
+    <section id="current-page-section">
+      <h2>Current Page</h2>
+      <label class="checkbox-item">
+        <input type="checkbox" id="include-current" checked>
+        <span id="current-page-title">Loading...</span>
+      </label>
+    </section>
+
+    <section id="links-section">
+      <h2>Linked Pages <span id="link-count">(0)</span></h2>
+
+      <div class="controls">
+        <button id="select-all" class="btn-small">Select All</button>
+        <button id="select-none" class="btn-small">Select None</button>
+        <button id="select-same-domain" class="btn-small">Same Domain</button>
+        <span class="controls-divider">|</span>
+        <button id="expand-all" class="btn-small">Expand</button>
+        <button id="collapse-all" class="btn-small">Collapse</button>
+      </div>
+
+      <div class="filter-row">
+        <input type="text" id="filter-input" placeholder="Filter links...">
+      </div>
+
+      <div id="links-list">
+        <div class="loading">Loading links...</div>
+      </div>
+    </section>
+
+    <section id="settings-section">
+      <h2>Settings</h2>
+      <div class="filename-row">
+        <label>
+          Filename:
+          <input type="text" id="filename-input" placeholder="Enter filename...">
+        </label>
+        <span class="filename-ext">.pdf</span>
+      </div>
+      <div class="settings-row">
+        <label>
+          Page Size:
+          <select id="page-size">
+            <option value="a4" selected>A4</option>
+            <option value="letter">Letter</option>
+            <option value="legal">Legal</option>
+          </select>
+        </label>
+        <label>
+          Orientation:
+          <select id="orientation">
+            <option value="portrait" selected>Portrait</option>
+            <option value="landscape">Landscape</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <footer>
+      <div id="error-container" class="hidden">
+        <div class="error-message">
+          <span id="error-text"></span>
+          <button id="error-dismiss" class="error-dismiss">&times;</button>
+        </div>
+      </div>
+      <div id="progress-container" class="hidden">
+        <div class="progress-bar">
+          <div id="progress-fill"></div>
+        </div>
+        <span id="progress-text">Processing...</span>
+      </div>
+      <button id="create-pdf" class="btn-primary">Create PDF</button>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
